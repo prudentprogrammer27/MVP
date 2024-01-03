@@ -6,6 +6,7 @@ import pg from 'pg';
 import cors from "cors";
 import dotenv from "dotenv";
 import postgres from 'postgres';
+import 'dotenv/config';
 dotenv.config();
 
 
@@ -14,8 +15,7 @@ const PORT = 8000;
 const app = express();
 const { Pool } = pg;
 
-const connectionString = 'postgres://steven:H0AIBP7NQZsPkZFjb01mFOOoswMa2fVH@dpg-cm7ro9md3nmc73au2tj0-a.oregon-postgres.render.com/stock_db_2jwd?ssl=true'
-
+const connectionString = process.env.DATABASE_URL;
 // Database Connection Pool
 const pool = new Pool({
     connectionString
